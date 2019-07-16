@@ -8,7 +8,7 @@ apply plugin: 'application'
 apply plugin: 'eclipse'
 apply plugin: 'idea'
 
-mainClassName = 'com.itacademy.itproject.ItprojectApplication'
+//mainClassName = 'com.itacademy.itproject.ItprojectApplication'
 group = 'com.itacademy'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '1.8'
