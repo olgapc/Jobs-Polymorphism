@@ -4,12 +4,8 @@ plugins {
 }
 
 apply plugin: 'io.spring.dependency-management'
-apply plugin: 'application'
-apply plugin: 'eclipse'
-apply plugin: 'idea'
 
-//mainClassName = 'com.itacademy.itproject.ItprojectApplication'
-group = 'com.itacademy'
+
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '1.8'
 
@@ -18,7 +14,9 @@ repositories {
 }
 
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-	implementation 'org.springframework.boot:spring-boot-starter-web'
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	implementation 'org.springframework.boot:spring-boot-starter'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'        
+        implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.springframework.boot:spring-boot-starter-web'        
+        compile 'mysql:mysql-connector-java'       
 }
