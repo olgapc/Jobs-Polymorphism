@@ -5,6 +5,8 @@ plugins {
 
 apply plugin: 'io.spring.dependency-management'
 apply plugin: 'application'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
 
 mainClassName = 'com.itacademy.itproject.ItprojectApplication'
 group = 'com.itacademy'
