@@ -3,4 +3,4 @@ pluginManagement {
 		gradlePluginPortal()
 	}
 }
-rootProject.name = 'itproject'
+rootProject.name = 'IT-Project-Server'
