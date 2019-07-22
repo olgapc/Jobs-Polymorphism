@@ -5,25 +5,22 @@
  */
 package com.itacademy.itproject.controllers;
 
-import com.itacademy.itproject.exceptions.NonexistentEntityException;
-import com.itacademy.itproject.exceptions.PreexistingEntityException;
-import java.io.Serializable;
-import java.util.List;
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Query;
-import javax.persistence.EntityNotFoundException;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Root;
-import com.itacademy.itproject.models.HistoricStudentItinerary;
-import com.itacademy.itproject.models.HistoricStudentItineraryPK;
 import com.itacademy.itproject.domain.Itinerary;
 import com.itacademy.itproject.domain.Student;
+import com.itacademy.itproject.exceptions.NonexistentEntityException;
+import com.itacademy.itproject.exceptions.PreexistingEntityException;
+import com.itacademy.itproject.models.HistoricStudentItinerary;
+import com.itacademy.itproject.models.HistoricStudentItineraryPK;
 
-/**
- *
- * @author Xavier Roldán <info@xavierroldan.com>
- */
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.EntityNotFoundException;
+import javax.persistence.Query;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
+import java.io.Serializable;
+import java.util.List;
+
 public class HistoricStudentItineraryJpaController implements Serializable
 {
     public HistoricStudentItineraryJpaController(EntityManagerFactory emf)

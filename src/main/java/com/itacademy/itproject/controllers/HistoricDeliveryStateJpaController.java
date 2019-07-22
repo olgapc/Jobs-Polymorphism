@@ -21,10 +21,6 @@ import javax.persistence.criteria.Root;
 import java.io.Serializable;
 import java.util.List;
 
-/**
- *
- * @author Xavier Roldán <info@xavierroldan.com>
- */
 public class HistoricDeliveryStateJpaController implements Serializable
 {
     public HistoricDeliveryStateJpaController(EntityManagerFactory emf)

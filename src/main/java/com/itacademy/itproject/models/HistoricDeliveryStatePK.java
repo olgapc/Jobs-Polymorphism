@@ -9,10 +9,6 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 
-/**
- *
- * @author Xavier Roldán <info@xavierroldan.com>
- */
 @Embeddable
 public class HistoricDeliveryStatePK implements Serializable
 {
@@ -32,16 +28,19 @@ public class HistoricDeliveryStatePK implements Serializable
     @Temporal(TemporalType.DATE)
     private Date date;
 
-    public HistoricDeliveryStatePK(byte[] student, byte[] exercise, HistoricDeliveryState.States state, Date date)
-    {
-    }
-
     public HistoricDeliveryStatePK(byte[] student, byte[] exercise, States state, Date date)
     {
         this.student = student;
         this.exercise = exercise;
         this.state = state;
         this.date = date;
+    }
+
+    public HistoricDeliveryStatePK() {
+        
+    }
+
+    public HistoricDeliveryStatePK(byte[] student, byte[] exercise, HistoricDeliveryState.States state, Date date) {
     }
 
     public byte[] getStudent()

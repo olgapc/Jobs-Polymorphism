@@ -14,10 +14,6 @@ import javax.xml.bind.annotation.XmlTransient;
 import java.io.Serializable;
 import java.util.Collection;
 
-/**
- *
- * @author Xavier Roldán <info@xavierroldan.com>
- */
 @Entity
 @Table(name = "exercise")
 @XmlRootElement

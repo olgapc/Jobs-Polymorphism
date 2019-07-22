@@ -5,32 +5,30 @@
  */
 package com.itacademy.itproject.models;
 
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Embeddable;
-import javax.persistence.Lob;
+import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Date;
 
 @Embeddable
-public class HistoricStudentItineraryPK implements Serializable
+public class StudentAbsencesPK implements Serializable
 {
     @Basic(optional = false)
     @Lob
     @Column(name = "student")
     private byte[] student;
     @Basic(optional = false)
-    @Lob
-    @Column(name = "itinerary")
-    private byte[] itinerary;
+    @Column(name = "date")
+    @Temporal(TemporalType.DATE)
+    private Date date;
 
-    public HistoricStudentItineraryPK()
+    public StudentAbsencesPK()
     {
     }
 
-    public HistoricStudentItineraryPK(byte[] student, byte[] itinerary)
+    public StudentAbsencesPK(byte[] student, Date date)
     {
         this.student = student;
-        this.itinerary = itinerary;
+        this.date = date;
     }
 
     public byte[] getStudent()
@@ -43,14 +41,14 @@ public class HistoricStudentItineraryPK implements Serializable
         this.student = student;
     }
 
-    public byte[] getItinerary()
+    public Date getDate()
     {
-        return itinerary;
+        return date;
     }
 
-    public void setItinerary(byte[] itinerary)
+    public void setDate(Date date)
     {
-        this.itinerary = itinerary;
+        this.date = date;
     }
 
     @Override
@@ -58,7 +56,7 @@ public class HistoricStudentItineraryPK implements Serializable
     {
         int hash = 0;
         hash += (student != null ? student.hashCode() : 0);
-        hash += (itinerary != null ? itinerary.hashCode() : 0);
+        hash += (date != null ? date.hashCode() : 0);
         return hash;
     }
 
@@ -66,16 +64,16 @@ public class HistoricStudentItineraryPK implements Serializable
     public boolean equals(Object object)
     {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof HistoricStudentItineraryPK))
+        if (!(object instanceof StudentAbsencesPK))
         {
             return false;
         }
-        HistoricStudentItineraryPK other = (HistoricStudentItineraryPK) object;
+        StudentAbsencesPK other = (StudentAbsencesPK) object;
         if ((this.student == null && other.student != null) || (this.student != null && !this.student.equals(other.student)))
         {
             return false;
         }
-        if ((this.itinerary == null && other.itinerary != null) || (this.itinerary != null && !this.itinerary.equals(other.itinerary)))
+        if ((this.date == null && other.date != null) || (this.date != null && !this.date.equals(other.date)))
         {
             return false;
         }
@@ -85,6 +83,7 @@ public class HistoricStudentItineraryPK implements Serializable
     @Override
     public String toString()
     {
-        return "containerjpa.HistoricStudentItineraryPK[ student=" + student + ", itinerary=" + itinerary + " ]";
+        return "containerjpa.StudentAbsencesPK[ student=" + student + ", date=" + date + " ]";
     }
+
 }

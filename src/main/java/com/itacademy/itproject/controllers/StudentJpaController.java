@@ -5,31 +5,28 @@
  */
 package com.itacademy.itproject.controllers;
 
+import com.itacademy.itproject.domain.Itinerary;
+import com.itacademy.itproject.domain.Student;
+import com.itacademy.itproject.domain.User;
 import com.itacademy.itproject.exceptions.IllegalOrphanException;
 import com.itacademy.itproject.exceptions.NonexistentEntityException;
 import com.itacademy.itproject.exceptions.PreexistingEntityException;
-import java.io.Serializable;
-import javax.persistence.Query;
+import com.itacademy.itproject.models.CurrentDeliveryState;
+import com.itacademy.itproject.models.HistoricDeliveryState;
+import com.itacademy.itproject.models.HistoricStudentItinerary;
+import com.itacademy.itproject.models.StudentAbsences;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityNotFoundException;
+import javax.persistence.Query;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
-import com.itacademy.itproject.domain.User;
-import com.itacademy.itproject.domain.Itinerary;
-import com.itacademy.itproject.models.StudentAbsences;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import com.itacademy.itproject.models.CurrentDeliveryState;
-import com.itacademy.itproject.models.HistoricStudentItinerary;
-import com.itacademy.itproject.models.HistoricDeliveryState;
-import com.itacademy.itproject.domain.Student;
 
-/**
- *
- * @author Xavier Roldán <info@xavierroldan.com>
- */
 public class StudentJpaController implements Serializable
 {
     public StudentJpaController(EntityManagerFactory emf)

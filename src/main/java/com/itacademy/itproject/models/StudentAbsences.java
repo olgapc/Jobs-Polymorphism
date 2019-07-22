@@ -12,10 +12,6 @@ import javax.xml.bind.annotation.XmlRootElement;
 import java.io.Serializable;
 import java.util.Date;
 
-/**
- *
- * @author Xavier Roldán <info@xavierroldan.com>
- */
 @Entity
 @Table(name = "student_absences")
 @XmlRootElement

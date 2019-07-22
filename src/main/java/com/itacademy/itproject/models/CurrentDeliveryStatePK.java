@@ -9,10 +9,6 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 
-/**
- *
- * @author Xavier Roldán <info@xavierroldan.com>
- */
 @Embeddable
 public class CurrentDeliveryStatePK implements Serializable
 {

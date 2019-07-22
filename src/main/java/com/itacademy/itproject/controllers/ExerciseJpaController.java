@@ -24,10 +24,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-/**
- *
- * @author Xavier Roldán <info@xavierroldan.com>
- */
 public class ExerciseJpaController implements Serializable
 {
     public ExerciseJpaController(EntityManagerFactory emf)

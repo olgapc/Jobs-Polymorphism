@@ -6,6 +6,7 @@
 package com.itacademy.itproject.domain;
 
 import com.itacademy.itproject.models.HistoricStudentItinerary;
+import com.itacademy.itproject.models.Itineraries;
 
 import javax.persistence.*;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -13,10 +14,6 @@ import javax.xml.bind.annotation.XmlTransient;
 import java.io.Serializable;
 import java.util.Collection;
 
-/**
- *
- * @author Xavier Roldán <info@xavierroldan.com>
- */
 @Entity
 @Table(name = "itinerary")
 @XmlRootElement
@@ -35,7 +32,7 @@ public class Itinerary implements Serializable
     private byte[] id;
     @Basic(optional = false)
     @Column(name = "name")
-    private String name;
+    private Itineraries name;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "itinerary1")
     private Collection<HistoricStudentItinerary> historicStudentItineraryCollection;
     @OneToMany(mappedBy = "itinerary")
@@ -55,7 +52,7 @@ public class Itinerary implements Serializable
         this.id = id;
     }
 
-    public Itinerary(byte[] id, String name)
+    public Itinerary(byte[] id, Itineraries name)
     {
         this.id = id;
         this.name = name;
@@ -71,12 +68,12 @@ public class Itinerary implements Serializable
         this.id = id;
     }
 
-    public String getName()
+    public Itineraries getName()
     {
         return name;
     }
 
-    public void setName(String name)
+    public void setName(Itineraries name)
     {
         this.name = name;
     }

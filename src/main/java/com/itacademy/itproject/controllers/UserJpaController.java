@@ -5,27 +5,24 @@
  */
 package com.itacademy.itproject.controllers;
 
+import com.itacademy.itproject.domain.Itinerary;
+import com.itacademy.itproject.domain.Student;
+import com.itacademy.itproject.domain.User;
 import com.itacademy.itproject.exceptions.IllegalOrphanException;
 import com.itacademy.itproject.exceptions.NonexistentEntityException;
 import com.itacademy.itproject.exceptions.PreexistingEntityException;
-import java.io.Serializable;
-import javax.persistence.Query;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityNotFoundException;
+import javax.persistence.Query;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
-import com.itacademy.itproject.domain.Student;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import com.itacademy.itproject.domain.Itinerary;
-import com.itacademy.itproject.domain.User;
 
-/**
- *
- * @author Xavier Roldán <info@xavierroldan.com>
- */
 public class UserJpaController implements Serializable
 {
     public UserJpaController(EntityManagerFactory emf)

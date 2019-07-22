@@ -14,10 +14,6 @@ import java.io.Serializable;
 import java.util.Collection;
 import java.util.Date;
 
-/**
- *
- * @author Xavier Roldán <info@xavierroldan.com>
- */
 @Entity
 @Table(name = "student")
 @XmlRootElement

@@ -13,10 +13,6 @@ import javax.xml.bind.annotation.XmlRootElement;
 import java.io.Serializable;
 import java.util.Date;
 
-/**
- *
- * @author Xavier Roldán <info@xavierroldan.com>
- */
 @Entity
 @Table(name = "historic_student_itinerary")
 @XmlRootElement
@@ -56,7 +52,7 @@ public class HistoricStudentItinerary implements Serializable
         this.endDate = endDate;
     }
 
-    public HistoricStudentItinerary(byte[] student, Itineraries itinerary)
+    public HistoricStudentItinerary(byte[] student, byte[] itinerary)
     {
         this.historicStudentItineraryPK = new HistoricStudentItineraryPK(student, itinerary);
     }
