@@ -22,6 +22,7 @@ import java.util.Date;
             @NamedQuery(name = "Student.findAll", query = "SELECT s FROM Student s")
             , @NamedQuery(name = "Student.findByMail", query = "SELECT s FROM Student s WHERE s.mail = :mail")
             , @NamedQuery(name = "Student.findBySex", query = "SELECT s FROM Student s WHERE s.sex = :sex")
+            , @NamedQuery(name = "User.findByTable", query = "SELECT u FROM User u WHERE u.table = :table")
             , @NamedQuery(name = "Student.findByConclusion", query = "SELECT s FROM Student s WHERE s.conclusion = :conclusion")
             , @NamedQuery(name = "Student.findByStartDate", query = "SELECT s FROM Student s WHERE s.startDate = :startDate")
             , @NamedQuery(name = "Student.findByDeadline", query = "SELECT s FROM Student s WHERE s.deadline = :deadline")
@@ -41,6 +42,8 @@ public class Student extends User implements Serializable
     @Basic(optional = false)
     @Column(name = "sex")
     private String sex;
+    @Column(name = "table")
+    private int table;
     @Basic(optional = false)
     @Column(name = "conclusion")
     private Conclusion conclusion;
@@ -117,7 +120,15 @@ public class Student extends User implements Serializable
     {
         this.sex = sex;
     }
+    public int getTable()
+    {
+        return table;
+    }
 
+    public void setTable(int table)
+    {
+        this.table = table;
+    }
     public Conclusion getConclusion()
     {
         return conclusion;
