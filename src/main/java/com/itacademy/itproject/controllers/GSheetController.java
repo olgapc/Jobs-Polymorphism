@@ -33,7 +33,7 @@ public class GSheetController
     //              GSheetDAO myObjectDAO = new GSheetDAO();
     //      3: Call this getRows method to load the data in
     //              myObjectDAO = myGsheetController.getRows();
-    //      3: To verify the data use toString         
+    //      4: To verify the data use toString         
     //              System.out.println(myObjectDAO.toString());
 
     private static final String APPLICATION_NAME = "Google Sheets API Java Quickstart";

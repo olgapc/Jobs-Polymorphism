@@ -11,7 +11,7 @@ public class StudentRestController
     @RequestMapping(value = "/test", method = RequestMethod.GET)
     public String getTest()
     {
-
+        //call from the web browser http://localhost:8080/students/test
         return "Hello test";
     }
 }
