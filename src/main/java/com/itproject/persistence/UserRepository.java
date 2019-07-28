@@ -1,5 +1,6 @@
 package com.itproject.persistence;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -14,6 +15,10 @@ public class UserRepository {
 	@Autowired
 	private IUserRepository repository;
 	
+	public User save(User user) {
+		return repository.save(user);
+	}
+	
 	public User findById(UUID id) {
 		if(repository.findById(id).isPresent()) {
 			return repository.findById(id).get();
@@ -22,12 +27,8 @@ public class UserRepository {
 		}
 	}
 	
-	public Iterable<User> findAll() {
-		return repository.findAll(); 
-	}
-	
-	public User save(User user) {
-		return repository.save(user);
+	public List<User> findAll() {
+		return (List<User>) repository.findAll(); 
 	}
 	
 }

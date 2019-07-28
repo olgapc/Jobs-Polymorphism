@@ -14,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase.Replace;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import com.itproject.application.*;
@@ -23,7 +24,12 @@ import com.itproject.domain.enums.*;
 
 @RunWith(SpringRunner.class)
 @DataJpaTest
+// Annotation that allows tests to work with the real DB
 @AutoConfigureTestDatabase(replace=Replace.NONE)
+@Rollback(false)
+/* With this annotation, actions done in tests don't roll back
+ * You must delete the new user/student manually to avoid inconsistencies
+*/
 public class RepositoryTests {
 	
 	@Autowired
@@ -33,16 +39,18 @@ public class RepositoryTests {
 	private User user;
 	private Student student;
 	
+	// Creates a new user and a new student before each test
 	@Before
 	public void setUp() {
-		user = new User("username", "password", "name", "surnames", UserRole.TEACHER);
-		student = new Student("username", "password", "name", "surnames", UserRole.TEACHER,
-				"mail", Sex.M, Conclusion.ELIGIBLE, LocalDate.of(2019,01,01), LocalDate.of(2019,04,01));
+		user = new User("portaaviones", "nimitz", "Jake", "Petrulla Doncel", UserRole.TEACHER);
+		student = new Student("soniasfl", "ssfl", "Sonia", "Sanchez-Fortun Lopez", UserRole.STUDENT,
+				"soniasfl@gmail.com", Sex.F, Conclusion.ELIGIBLE, LocalDate.of(2019,4,2), LocalDate.of(2019,8,2));
 	}
 	
 	@Test
 	public void injectedComponentsAreNotNull(){
 		assertThat(userController).isNotNull();
+		assertThat(studentController).isNotNull();
 	}
 	
 	@Test(expected = NoSuchElementException.class)
@@ -51,6 +59,7 @@ public class RepositoryTests {
 		userController.findById(id);
 	}
 	
+	// Saves the new user in DB, retrieves it from DB and checks if they are equals
 	@Test
 	public void saveNewUser() throws Exception {
 		userController.save(user);
@@ -58,6 +67,7 @@ public class RepositoryTests {
 		assertTrue(newUser.equals(user));
 	}
 	
+	// Saves the new student in DB, retrieves it from DB and checks if they are equals
 	@Test
 	public void saveNewStudent() throws Exception {
 		studentController.save(student);

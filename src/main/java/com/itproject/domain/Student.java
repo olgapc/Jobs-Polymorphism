@@ -37,6 +37,8 @@ public class Student extends User {
 	private User interviewTeacher;
 	
 	@OneToMany
+	private List<StudentAbsences> absences;
+	@OneToMany
 	private List<CurrentDelivery> currentDeliveries;
 	@OneToMany
 	private List<CurrentDelivery> historicDeliveries;
@@ -125,6 +127,14 @@ public class Student extends User {
 
 	public void setInterviewTeacher(User interviewTeacher) {
 		this.interviewTeacher = interviewTeacher;
+	}
+	
+	public List<StudentAbsences> getAbsences() {
+		return absences;
+	}
+
+	public void setAbsences(List<StudentAbsences> absences) {
+		this.absences = absences;
 	}
 
 	public List<CurrentDelivery> getCurrentDeliveries() {
