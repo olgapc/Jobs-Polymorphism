@@ -26,8 +26,8 @@ import com.itproject.domain.enums.*;
 @DataJpaTest
 // Annotation that allows tests to work with the real DB
 @AutoConfigureTestDatabase(replace=Replace.NONE)
-@Rollback(false)
-/* With this annotation, actions done in tests don't roll back
+/*@Rollback(false)
+ * With this annotation, actions done in tests don't roll back
  * You must delete the new user/student manually to avoid inconsistencies
 */
 public class RepositoryTests {
