@@ -28,10 +28,6 @@ public class StudentController {
 		return repository.save(student);
 	}
 	
-	public void delete(Student student) {
-		repository.delete(student);
-	}
-	
 	public Student findById(UUID id) {
 		return repository.findById(id);
 	}

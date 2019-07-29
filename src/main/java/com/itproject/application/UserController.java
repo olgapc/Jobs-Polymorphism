@@ -14,6 +14,10 @@ public class UserController {
 	@Autowired
 	private UserRepository repository;
 	
+	public User save(User user) {
+		return repository.save(user);
+	}
+	
 	public User findById(UUID id) {
 		return repository.findById(id);
 	}
@@ -22,7 +26,4 @@ public class UserController {
 		return repository.findAll(); 
 	}
 	
-	public User save(User user) {
-		return repository.save(user);
-	}
 }

@@ -24,8 +24,8 @@ public class StudentRestController {
 	@Autowired
 	private StudentController controller;
 	
-    // Saves a new student in Database
-	// Call from the web browser http://localhost:8080/students/new
+	// Saves a new student in Database
+	// Call from a Rest client http://localhost:8080/students/new
 	@PostMapping(value = "/new", produces = "application/json;charset=UTF-8")
 	public String register(@RequestBody String jStudent) {
 		StudentDTO newStudent = new Gson().fromJson(jStudent, StudentDTO.class);
@@ -33,7 +33,7 @@ public class StudentRestController {
 		return toJson(student);
 	}
 	
-    // Returns a list of the students in Database
+	// Returns a list of the students in Database
 	// Call from the web browser http://localhost:8080/students/list
 	@GetMapping(value = "/list", produces = "application/json;charset=UTF-8")
 	public String listStudents() {

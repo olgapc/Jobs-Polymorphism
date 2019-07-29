@@ -17,7 +17,7 @@ public class GlobalRestController {
 	@Autowired
 	private GSheetController controller;
 	
-    // Import GoogleSheet in Database
+	// Import GoogleSheet in Database
 	// Call from the web browser http://localhost:8080/global/import
 	@PostMapping(value = "/import", produces = "application/json;charset=UTF-8")
 	public String importGSheet() {

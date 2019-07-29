@@ -1,6 +1,7 @@
 package com.itproject.persistence;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,12 +19,12 @@ public class StudentRepository {
 		return repository.save(student);
 	}
 	
-	public void delete(Student student) {
-		repository.delete(student);
-	}
-	
 	public Student findById(UUID id) {
-		return repository.findById(id).get();
+		if(repository.findById(id).isPresent()) {
+			return repository.findById(id).get();
+		} else {
+			return (Student)Optional.empty().get();
+		}
 	}
 	
 	public List<Student> findAll() {
