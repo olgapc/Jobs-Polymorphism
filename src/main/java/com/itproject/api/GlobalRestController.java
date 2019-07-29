@@ -2,11 +2,12 @@ package com.itproject.api;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.itproject.application.StudentController;
-import com.itproject.application.dto.StudentDTO;
+import com.itproject.gsheet.GSheetController;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
-import java.util.List;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 @CrossOrigin
 @RestController
@@ -14,14 +15,14 @@ import java.util.List;
 public class GlobalRestController {
 	
 	@Autowired
-	private StudentController controller;
+	private GSheetController controller;
 	
-    // Saves a new student in Database
-	// Call from the web browser http://localhost:8080/students/new
+    // Import GoogleSheet in Database
+	// Call from the web browser http://localhost:8080/global/import
 	@PostMapping(value = "/import", produces = "application/json;charset=UTF-8")
-	public String listStudents() {
-		List<StudentDTO> students = controller.listStudents();
-		return toJson(students);
+	public String importGSheet() {
+
+		return "Data Imported";
 	}
 	
 	// Object to Json converter
