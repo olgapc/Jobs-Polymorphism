@@ -5,8 +5,6 @@ import static org.junit.Assert.assertTrue;
 import java.time.LocalDate;
 import java.util.UUID;
 
-import java.util.NoSuchElementException;
-
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -21,13 +19,14 @@ import com.itproject.application.*;
 import com.itproject.domain.Student;
 import com.itproject.domain.User;
 import com.itproject.domain.enums.*;
+import com.itproject.utilities.NotFoundException;
 
 @RunWith(SpringRunner.class)
 @DataJpaTest
 // Annotation that allows tests to work with the real DB
 @AutoConfigureTestDatabase(replace=Replace.NONE)
-/*@Rollback(false)
- * With this annotation, actions done in tests don't roll back
+@Rollback(false)
+/* If @Rollback = false, actions done in tests don't roll back
  * You must delete the new user/student manually to avoid inconsistencies
 */
 public class RepositoryTests {
@@ -53,17 +52,22 @@ public class RepositoryTests {
 		assertThat(studentController).isNotNull();
 	}
 	
-	@Test(expected = NoSuchElementException.class)
-	public void userNotExists() throws Exception {
+	@Test(expected = NotFoundException.class)
+	public void studentIdNotExists() throws Exception {
 		UUID id = UUID.randomUUID();
-		userController.findById(id);
+		studentController.getStudentDTO(id);
+	}
+	
+	@Test(expected = NotFoundException.class)
+	public void studentNotExists() throws Exception {
+		studentController.getStudent(student.getName(), student.getSurnames(), student.getSex(), student.getStartDate());
 	}
 	
 	// Saves the new user in DB, retrieves it from DB and checks if they are equals
 	@Test
 	public void saveNewUser() throws Exception {
 		userController.save(user);
-		User newUser = userController.findById(user.getId());
+		User newUser = userController.getUser(user.getId());
 		assertTrue(newUser.equals(user));
 	}
 	
@@ -71,7 +75,7 @@ public class RepositoryTests {
 	@Test
 	public void saveNewStudent() throws Exception {
 		studentController.save(student);
-		Student newStudent = studentController.findById(student.getId());
+		Student newStudent = studentController.getStudent(student.getName(), student.getSurnames(), student.getSex(), student.getStartDate());
 		assertTrue(newStudent.equals(student));
 	}
 	

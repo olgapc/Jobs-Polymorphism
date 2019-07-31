@@ -5,6 +5,7 @@ import java.util.UUID;
 import com.google.gson.annotations.Expose;
 import com.itproject.domain.User;
 import com.itproject.domain.enums.UserRole;
+import com.itproject.utilities.NotFoundException;
 
 public class UserDTO {
 	
@@ -16,9 +17,14 @@ public class UserDTO {
 	private String name;
 	@Expose
 	private String surnames;
+	@Expose
 	private UserRole role;
 	
-	public UserDTO(User user) {
+	public UserDTO(User user) throws NotFoundException {
+		
+		if (user == null) {
+			throw new NotFoundException();
+		}
 		
 		this.id = user.getId();
 		this.username = user.getUsername();

@@ -28,6 +28,7 @@ CREATE TABLE IF NOT EXISTS `it_project`.`user` (
   `name` VARCHAR(45) NOT NULL,
   `surnames` VARCHAR(45) NOT NULL,
   `role` ENUM('STUDENT', 'TEACHER', 'IT_ADMIN') NOT NULL,
+  UNIQUE INDEX `username_UNIQUE` (`username` ASC),
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 

@@ -6,6 +6,7 @@ import java.util.UUID;
 import com.google.gson.annotations.Expose;
 import com.itproject.domain.*;
 import com.itproject.domain.enums.*;
+import com.itproject.utilities.NotFoundException;
 
 public class StudentDTO {
 	
@@ -34,9 +35,13 @@ public class StudentDTO {
 	@Expose
 	private User interviewTeacher;
 	
-	public StudentDTO(Student student) {
+	public StudentDTO(Student student) throws NotFoundException {
 		
-		//this.id = student.getId();
+		if (student == null) {
+			throw new NotFoundException();
+		}
+		
+		this.id = student.getId();
 		this.username = student.getUsername();
 		this.password = student.getPassword();
 		this.name = student.getName();
