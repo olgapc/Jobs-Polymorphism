@@ -25,7 +25,7 @@ import com.itproject.utilities.NotFoundException;
 @DataJpaTest
 // Annotation that allows tests to work with the real DB
 @AutoConfigureTestDatabase(replace=Replace.NONE)
-@Rollback(false)
+@Rollback(true)
 /* If @Rollback = false, actions done in tests don't roll back
  * You must delete the new user/student manually to avoid inconsistencies
 */

@@ -1,6 +1,7 @@
 package com.itproject.api;
 
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +18,7 @@ import com.google.gson.GsonBuilder;
 
 import com.itproject.application.StudentController;
 import com.itproject.application.dto.StudentDTO;
+import com.itproject.domain.enums.Sex;
 import com.itproject.utilities.InvalidParamException;
 import com.itproject.utilities.NotFoundException;
 
@@ -66,6 +68,14 @@ public class StudentRestController {
 		StudentDTO studentToUpdate = new Gson().fromJson(jStudent, StudentDTO.class);
 		StudentDTO student = controller.updateStudent(studentId, studentToUpdate);
 		return toJson(student);
+	}
+	
+	// Returns percentages by sex
+	// Call from the web browser http://localhost:8080/students/sexpercentages
+	@GetMapping(value = "/sexpercentages", produces = "application/json;charset=UTF-8")
+	public String getPercentagesBySex() {
+		Map<Sex, Long> percentages = controller.getPercentagesBySex();
+		return toJson(percentages);
 	}
     
 }

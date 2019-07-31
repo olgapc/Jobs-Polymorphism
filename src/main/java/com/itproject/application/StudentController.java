@@ -2,7 +2,9 @@ package com.itproject.application;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -65,6 +67,15 @@ public class StudentController {
 		
 		Student updatedStudent = save(student);
 		return new StudentDTO(updatedStudent);
+	}
+	
+	public Map<Sex, Long> getPercentagesBySex() {
+		Map<Sex, Long> percentages = new HashMap<>();
+		Long manPercentage = (repository.countMan() / repository.count()) * 100;
+		Long womanPercentage = (repository.countWoman() / repository.count()) * 100;
+		percentages.put(Sex.M, manPercentage);
+		percentages.put(Sex.F, womanPercentage);
+		return percentages;
 	}
 	
 }
