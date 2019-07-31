@@ -43,8 +43,8 @@ public class RepositoryTests {
 	@Before
 	public void setUp() {
 		user = new User("portaaviones", "nimitz", "Jake", "Petrulla Doncel", UserRole.TEACHER);
-		student = new Student("soniasfl", "ssfl", "Sonia", "Sanchez-Fortun Lopez", UserRole.STUDENT,
-				"soniasfl@gmail.com", Sex.F, Conclusion.ELIGIBLE, LocalDate.of(2019,4,2), LocalDate.of(2019,8,2));
+		student = new Student("soniasfl", "ssfl", "Sonia", "Sanchez-Fortun Lopez", "soniasfl@gmail.com", 
+				Sex.F, Conclusion.ELIGIBLE, LocalDate.of(2019,4,2), LocalDate.of(2019,8,2));
 	}
 	
 	@Test

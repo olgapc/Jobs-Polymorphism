@@ -9,16 +9,16 @@ import org.springframework.stereotype.Controller;
 
 import com.itproject.domain.Student;
 import com.itproject.application.dto.StudentDTO;
-import com.itproject.persistence.StudentRepository;
+import com.itproject.persistence.IUserGenericRepository;
 
 @Controller
 public class StudentController {
 	
 	@Autowired
-	private StudentRepository repository;
+	private IUserGenericRepository<Student> repository;
 	
 	public StudentDTO register(StudentDTO studentDTO) {
-		Student student = new Student(studentDTO.getUsername(), studentDTO.getPassword(), studentDTO.getName(), studentDTO.getSurnames(), studentDTO.getRole(),
+		Student student = new Student(studentDTO.getUsername(), studentDTO.getPassword(), studentDTO.getName(), studentDTO.getSurnames(), 
 				studentDTO.getMail(), studentDTO.getSex(), studentDTO.getConclusion(), studentDTO.getStartDate(), studentDTO.getDeadline());
 		student = repository.save(student);
 		return new StudentDTO(student);
@@ -29,11 +29,11 @@ public class StudentController {
 	}
 	
 	public Student findById(UUID id) {
-		return repository.findById(id);
+		return repository.findById(id).get();
 	}
 	
 	public List<StudentDTO> listStudents() {
-		List<Student> studentList = repository.findAll();
+		Iterable<Student> studentList = repository.findAll();
 		List<StudentDTO> studentDTOList = new ArrayList<>();
 		
 		for (Student student : studentList) {

@@ -47,9 +47,9 @@ public class Student extends User {
 	
 	protected Student() {}
 	
-	public Student(String username, String password, String name, String surnames, UserRole role,
+	public Student(String username, String password, String name, String surnames,
 			String mail, Sex sex, Conclusion conclusion, LocalDate startDate, LocalDate deadline) {
-		super(username, password, name, surnames, role);
+		super(username, password, name, surnames, UserRole.STUDENT);
 		this.mail = mail;
 		this.sex = sex;
 		this.conclusion = conclusion;
