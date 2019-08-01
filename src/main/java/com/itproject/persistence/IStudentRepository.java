@@ -13,10 +13,10 @@ public interface IStudentRepository extends IUserGenericRepository<Student, UUID
 	
 	public Optional<Student> findByNameAndSurnamesAndSexAndStartDate(String name, String surnames, Sex sex, LocalDate startDate);
 	
-	@Query(value = "SELECT count(*) FROM student WHERE sex = 'M'")
-	public int countMan();
+	@Query(value = "SELECT count(*) FROM student WHERE sex = 'M'", nativeQuery = true)
+	public long countMale();
 	
-	@Query(value = "SELECT count(*) FROM student WHERE sex = 'F'")
-	public int countWoman();
+	@Query(value = "SELECT count(*) FROM student WHERE sex = 'F'", nativeQuery = true)
+	public long countFemale();
 	
 }

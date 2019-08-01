@@ -69,12 +69,12 @@ public class StudentController {
 		return new StudentDTO(updatedStudent);
 	}
 	
-	public Map<Sex, Long> getPercentagesBySex() {
-		Map<Sex, Long> percentages = new HashMap<>();
-		Long manPercentage = (repository.countMan() / repository.count()) * 100;
-		Long womanPercentage = (repository.countWoman() / repository.count()) * 100;
-		percentages.put(Sex.M, manPercentage);
-		percentages.put(Sex.F, womanPercentage);
+	public Map<Sex, Double> getPercentagesBySex() {
+		Map<Sex, Double> percentages = new HashMap<>();
+		Double malePercentage = repository.countFemale() / (double) repository.count() * 100;
+		Double femalePercentage = repository.countFemale() / (double) repository.count() * 100;
+		percentages.put(Sex.M, malePercentage);
+		percentages.put(Sex.F, femalePercentage);
 		return percentages;
 	}
 	

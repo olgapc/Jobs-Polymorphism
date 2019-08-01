@@ -41,7 +41,7 @@ public class UserRestController {
 	}
 	
 	// Returns a list of the users in Database
-	// Call from the web browser http://localhost:8080/students/list
+	// Call from the web browser http://localhost:8080/users/list
 	@GetMapping(value = "/list", produces = "application/json;charset=UTF-8")
 	public String listUsers() throws NotFoundException {
 		List<UserDTO> users = controller.listUsers();

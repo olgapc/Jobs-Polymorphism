@@ -61,7 +61,7 @@ public class StudentRestController {
 	}
 	
 	// Updates the student with id = studentId
-	// Call from a Rest client http://localhost:8080/students/?studentId=${studentId}
+	// Call from a Rest client http://localhost:8080/students/${studentId}
 	@PutMapping(value = "/{studentId}", produces = "application/json;charset=UTF-8")
 	public String UpdateStudent(@PathVariable UUID studentId, @RequestBody String jStudent)
 			throws NotFoundException, InvalidParamException {
@@ -74,7 +74,7 @@ public class StudentRestController {
 	// Call from the web browser http://localhost:8080/students/sexpercentages
 	@GetMapping(value = "/sexpercentages", produces = "application/json;charset=UTF-8")
 	public String getPercentagesBySex() {
-		Map<Sex, Long> percentages = controller.getPercentagesBySex();
+		Map<Sex, Double> percentages = controller.getPercentagesBySex();
 		return toJson(percentages);
 	}
     
