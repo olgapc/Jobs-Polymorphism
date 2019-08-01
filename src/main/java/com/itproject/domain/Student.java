@@ -36,13 +36,13 @@ public class Student extends User {
 	@JoinColumn(name="interview_teacher")
 	private User interviewTeacher;
 	
-	@OneToMany
-	private List<StudentAbsences> absences;
-	@OneToMany
+	@OneToMany(mappedBy="studentAbsencePK.student")
+	private List<StudentAbsence> absences;
+	@OneToMany(mappedBy="currentDeliveryPK.student")
 	private List<CurrentDelivery> currentDeliveries;
-	@OneToMany
-	private List<CurrentDelivery> historicDeliveries;
-	@OneToMany
+	@OneToMany(mappedBy="historicDeliveryPK.student")
+	private List<HistoricDelivery> historicDeliveries;
+	@OneToMany(mappedBy="historicStudentItineraryPK.student")
 	private List<HistoricStudentItinerary> historicItineraries;
 	
 	protected Student() {}
@@ -85,10 +85,6 @@ public class Student extends User {
 		return startDate;
 	}
 
-	public void setStartDate(LocalDate startDate) {
-		this.startDate = startDate;
-	}
-
 	public LocalDate getDeadline() {
 		return deadline;
 	}
@@ -129,11 +125,11 @@ public class Student extends User {
 		this.interviewTeacher = interviewTeacher;
 	}
 	
-	public List<StudentAbsences> getAbsences() {
+	public List<StudentAbsence> getAbsences() {
 		return absences;
 	}
 
-	public void setAbsences(List<StudentAbsences> absences) {
+	public void setAbsences(List<StudentAbsence> absences) {
 		this.absences = absences;
 	}
 
@@ -145,11 +141,11 @@ public class Student extends User {
 		this.currentDeliveries = currentDeliveries;
 	}
 
-	public List<CurrentDelivery> getHistoricDeliveries() {
+	public List<HistoricDelivery> getHistoricDeliveries() {
 		return historicDeliveries;
 	}
 
-	public void setHistoricDeliveries(List<CurrentDelivery> historicDeliveries) {
+	public void setHistoricDeliveries(List<HistoricDelivery> historicDeliveries) {
 		this.historicDeliveries = historicDeliveries;
 	}
 

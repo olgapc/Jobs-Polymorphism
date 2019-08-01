@@ -29,7 +29,7 @@ public class Itinerary {
 	@JoinColumn(name="teacher")
 	private User teacher;
 	
-	@OneToMany
+	@OneToMany(mappedBy="itinerary")
 	private List<Exercise> exercises; 
 	
 	protected Itinerary() {}

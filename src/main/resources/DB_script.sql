@@ -88,11 +88,11 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `it_project`.`student_absences`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `it_project`.`student_absences` (
+CREATE TABLE IF NOT EXISTS `it_project`.`student_absence` (
   `student` BINARY(16) NOT NULL,
   `date` DATE NOT NULL,
   PRIMARY KEY (`student`, `date`),
-  CONSTRAINT `FK_student_absences`
+  CONSTRAINT `FK_student_absence`
     FOREIGN KEY (`student`)
     REFERENCES `it_project`.`student` (`id`)
     ON DELETE NO ACTION

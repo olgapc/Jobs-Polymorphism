@@ -20,4 +20,20 @@ public class HistoricDelivery {
 		historicDeliveryPK = new DeliveryPK(student, exercise, state, date);
 	}
 	
+	public Student getStudent() {
+		return historicDeliveryPK.getStudent();
+	}
+	
+	public Exercise getExercise() {
+		return historicDeliveryPK.getExercise();
+	}
+	
+	public ExerciseState getState() {
+		return historicDeliveryPK.getState();
+	}
+	
+	public LocalDate getDate() {
+		return historicDeliveryPK.getDate();
+	}
+	
 }

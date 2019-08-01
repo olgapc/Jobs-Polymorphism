@@ -20,4 +20,20 @@ public class CurrentDelivery {
 		currentDeliveryPK = new DeliveryPK(student, exercise, state, date);
 	}
 	
+	public Student getStudent() {
+		return currentDeliveryPK.getStudent();
+	}
+	
+	public Exercise getExercise() {
+		return currentDeliveryPK.getExercise();
+	}
+	
+	public ExerciseState getState() {
+		return currentDeliveryPK.getState();
+	}
+	
+	public LocalDate getDate() {
+		return currentDeliveryPK.getDate();
+	}
+	
 }

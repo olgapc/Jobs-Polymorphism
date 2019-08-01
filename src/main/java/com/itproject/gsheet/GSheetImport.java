@@ -185,9 +185,7 @@ public class GSheetImport
                     break;
 
                 case "Conclusió":
-                    if (!(listColumns.get(posColumn).equals("FI CURS")
-                            || listColumns.get(posColumn).equals("COL·LOCACIO")
-                            || listColumns.get(posColumn).equals("APTE")))
+                    if (!(listColumns.get(posColumn).equals("APTE")))
                     {
 
                         countFalse++;

@@ -10,16 +10,16 @@ import javax.persistence.ManyToOne;
 import com.itproject.domain.Student;
 
 @Embeddable
-public class StudentAbsencesPK implements Serializable {
+public class StudentAbsencePK implements Serializable {
 	
 	@ManyToOne
 	@JoinColumn(name="student")
 	private Student student;
 	private LocalDate date;
 	
-	protected StudentAbsencesPK() {}
+	protected StudentAbsencePK() {}
 	
-	public StudentAbsencesPK(Student student, LocalDate date) {
+	public StudentAbsencePK(Student student, LocalDate date) {
 		this.student = student;
 		this.date = date;
 	}
@@ -49,7 +49,7 @@ public class StudentAbsencesPK implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		StudentAbsencesPK other = (StudentAbsencesPK) obj;
+		StudentAbsencePK other = (StudentAbsencePK) obj;
 		if (date == null) {
 			if (other.date != null)
 				return false;

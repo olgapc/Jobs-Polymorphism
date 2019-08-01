@@ -60,6 +60,14 @@ public class StudentRestController {
 		return toJson(null);
 	}
 	
+	// Returns the absences of the student with id = studentId
+	// Call from the web browser http://localhost:8080/students/${studentId/absences}
+	@GetMapping(value = "/{studentId}/absences", produces = "application/json;charset=UTF-8")
+	public String getStudentAbsences(@PathVariable UUID studentId) throws NotFoundException {
+		// TODO
+		return toJson(null);
+	}
+	
 	// Updates the student with id = studentId
 	// Call from a Rest client http://localhost:8080/students/${studentId}
 	@PutMapping(value = "/{studentId}", produces = "application/json;charset=UTF-8")
@@ -78,4 +86,12 @@ public class StudentRestController {
 		return toJson(percentages);
 	}
     
+	// Returns a list of the students with 8 or more absences
+	// Call from the web browser http://localhost:8080/students/list/eightormoreabsences
+	@GetMapping(value = "/list/eightormoreabsences", produces = "application/json;charset=UTF-8")
+	public String listStudentsWithEightOrMoreAbsences() throws NotFoundException {
+		List<StudentDTO> students = controller.listStudentsWithEightOrMoreAbsences();
+		return toJson(students);
+	}
+	
 }

@@ -71,11 +71,29 @@ public class StudentController {
 	
 	public Map<Sex, Double> getPercentagesBySex() {
 		Map<Sex, Double> percentages = new HashMap<>();
-		Double malePercentage = repository.countFemale() / (double) repository.count() * 100;
-		Double femalePercentage = repository.countFemale() / (double) repository.count() * 100;
+		double total = (double) repository.count();
+		Double malePercentage = 0.0;
+		Double femalePercentage = 0.0;
+		
+		if (total != 0.0) {
+			malePercentage = repository.countBySex(Sex.M) / total * 100;
+			femalePercentage = repository.countBySex(Sex.F) / total * 100;
+		}
 		percentages.put(Sex.M, malePercentage);
 		percentages.put(Sex.F, femalePercentage);
+		
 		return percentages;
+	}
+	
+	public List<StudentDTO> listStudentsWithEightOrMoreAbsences() throws NotFoundException {
+		Iterable<Student> studentList = repository.findStudentsWithEightOrMoreAbsences();
+		List<StudentDTO> studentDTOList = new ArrayList<>();
+		
+		for (Student student : studentList) {
+			studentDTOList.add(new StudentDTO(student));
+		}
+		
+		return studentDTOList;
 	}
 	
 }

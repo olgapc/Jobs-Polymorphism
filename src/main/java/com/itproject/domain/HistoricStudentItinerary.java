@@ -23,4 +23,12 @@ public class HistoricStudentItinerary {
 		historicStudentItineraryPK = new HistoricStudentItineraryPK(student, itinerary);
 	}
 	
+	public Student getStudent() {
+		return historicStudentItineraryPK.getStudent();
+	}
+	
+	public Itinerary getItinerary() {
+		return historicStudentItineraryPK.getItinerary();
+	}
+	
 }
