@@ -11,6 +11,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.PrimaryKeyJoinColumn;
+import javax.persistence.Transient;
 
 import com.itproject.domain.enums.*;
 
@@ -44,6 +45,9 @@ public class Student extends User {
 	private List<HistoricDelivery> historicDeliveries;
 	@OneToMany(mappedBy="historicStudentItineraryPK.student")
 	private List<HistoricStudentItinerary> historicItineraries;
+	
+	@Transient
+	private List<Exercise> exercises;
 	
 	protected Student() {}
 	

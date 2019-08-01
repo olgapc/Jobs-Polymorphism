@@ -17,6 +17,8 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 import com.itproject.application.StudentController;
+import com.itproject.application.dto.ExerciseDTO;
+import com.itproject.application.dto.StudentAbsenceDTO;
 import com.itproject.application.dto.StudentDTO;
 import com.itproject.domain.enums.Sex;
 import com.itproject.utilities.InvalidParamException;
@@ -55,17 +57,19 @@ public class StudentRestController {
 	// Returns a list of the student's exercises
 	// Call from the web browser http://localhost:8080/students/${studentId}/exercises
 	@GetMapping(value = "/{studentId}/exercises", produces = "application/json;charset=UTF-8")
-	public String getStudentExercises() throws NotFoundException {
-		// TODO
-		return toJson(null);
+	public String getStudentExercises(@PathVariable UUID studentId) throws NotFoundException {
+		StudentDTO student = controller.getStudentDTO(studentId);
+		List<ExerciseDTO> exercises = controller.getStudentExercises(student);
+		return toJson(exercises);
 	}
 	
-	// Returns the absences of the student with id = studentId
-	// Call from the web browser http://localhost:8080/students/${studentId/absences}
+	// Returns a list of the student's absences
+	// Call from the web browser http://localhost:8080/students/${studentId}/absences
 	@GetMapping(value = "/{studentId}/absences", produces = "application/json;charset=UTF-8")
 	public String getStudentAbsences(@PathVariable UUID studentId) throws NotFoundException {
-		// TODO
-		return toJson(null);
+		StudentDTO student = controller.getStudentDTO(studentId);
+		List<StudentAbsenceDTO> absences = controller.getStudentAbsences(student);
+		return toJson(absences);
 	}
 	
 	// Updates the student with id = studentId

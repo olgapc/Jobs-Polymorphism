@@ -382,8 +382,20 @@ INSERT INTO `user` (`id`, `username`, `password`, `name`, `surnames`, `role`) VA
 
 INSERT INTO `student` (`id`, `mail`, `sex`, `conclusion`, `start_date`, `deadline`) VALUES ((UNHEX(REPLACE("3b758092-9034-44a4-b04d-000eebd9ba3d", "-",""))), 'mail', 'F', 'ELIGIBLE', '2019-06-01', '2019-11-11');
 
-INSERT INTO `student_absence` (`student`, `date`) VALUES ((UNHEX(REPLACE("3b758092-9034-44a4-b04d-000eebd9ba3d", "-",""))), '2019-10-23');
+INSERT INTO `exercise` (`id`, `name`, `is_common`, `order`) VALUES ((UNHEX(REPLACE("19576258-61c3-4d99-8b6f-944ae7cc1f2f", "-",""))), 'Github', 1, 1);
 
-INSERT INTO `student_absence` (`student`, `date`) VALUES ((UNHEX(REPLACE("3b758092-9034-44a4-b04d-000eebd9ba3d", "-",""))), '2019-10-24');
+INSERT INTO `exercise` (`id`, `name`, `is_common`, `order`) VALUES ((UNHEX(REPLACE("3b758092-9034-44a4-b04d-000eebd9ba3d", "-",""))), 'USFlights', 1, 2);
 
+INSERT INTO `exercise` (`id`, `name`, `is_common`, `order`) VALUES ((UNHEX(REPLACE("0fee3bab-9917-4fa4-90ba-4a3aa03e3b2c", "-",""))), 'Modelatge BBDD', 1, 3);
 
+INSERT INTO `exercise` (`id`, `name`, `is_common`, `order`, `itinerary`) VALUES ((UNHEX(REPLACE("5c718d72-7fc4-4da0-a99e-dfabb1e89cef", "-",""))), 'Disseny de funcionalitats', 0, 1, (UNHEX(REPLACE("b15345c1-7697-453e-abdb-41a470bc3566", "-",""))));
+
+INSERT INTO `exercise` (`id`, `name`, `is_common`, `order`, `itinerary`) VALUES ((UNHEX(REPLACE("a8484815-809a-4abb-839a-72f2c78aaa51", "-",""))), 'Projecte Fase 1-2 (html-css)', 0, 2, (UNHEX(REPLACE("b15345c1-7697-453e-abdb-41a470bc3566", "-",""))));
+
+INSERT INTO `exercise` (`id`, `name`, `is_common`, `order`, `itinerary`) VALUES ((UNHEX(REPLACE("16254c4d-bb05-4668-a715-96fef62e416f", "-",""))), 'Projecte Fase 2 (funcionalitats)', 0, 3, (UNHEX(REPLACE("b15345c1-7697-453e-abdb-41a470bc3566", "-",""))));
+
+INSERT INTO `exercise` (`id`, `name`, `is_common`, `order`, `itinerary`) VALUES ((UNHEX(REPLACE("2b7d7475-44b6-4dc0-b3ca-cdfb96b3dda0", "-",""))), 'Lletres repetides', 0, 1, (UNHEX(REPLACE("5b077002-e07a-4731-86f7-0f85936df341", "-",""))));
+
+INSERT INTO `exercise` (`id`, `name`, `is_common`, `order`, `itinerary`) VALUES ((UNHEX(REPLACE("a891e100-bf59-4eb5-b84e-32f2247d7e1f", "-",""))), 'Vehicles', 0, 2, (UNHEX(REPLACE("5b077002-e07a-4731-86f7-0f85936df341", "-",""))));
+
+INSERT INTO `exercise` (`id`, `name`, `is_common`, `order`, `itinerary`) VALUES ((UNHEX(REPLACE("17e0d6a4-1abb-4e4c-b7ac-976b1e73d4d8", "-",""))), 'Videos', 0, 3, (UNHEX(REPLACE("5b077002-e07a-4731-86f7-0f85936df341", "-",""))));

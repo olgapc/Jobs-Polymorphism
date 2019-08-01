@@ -9,7 +9,7 @@ import org.springframework.data.jpa.repository.Query;
 import com.itproject.domain.Student;
 import com.itproject.domain.enums.Sex;
 
-public interface IStudentRepository extends IUserGenericRepository<Student, UUID> {
+public interface IStudentRepository extends IGenericRepository<Student, UUID> {
 	
 	// Auto-generated query from method's name
 	// Student who matches the parameters values

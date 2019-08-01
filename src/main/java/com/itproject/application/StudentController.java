@@ -11,7 +11,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
 import com.itproject.domain.Student;
+import com.itproject.domain.StudentAbsence;
 import com.itproject.domain.enums.Sex;
+import com.itproject.application.dto.ExerciseDTO;
+import com.itproject.application.dto.StudentAbsenceDTO;
 import com.itproject.application.dto.StudentDTO;
 import com.itproject.persistence.IStudentRepository;
 import com.itproject.utilities.InvalidParamException;
@@ -94,6 +97,22 @@ public class StudentController {
 		}
 		
 		return studentDTOList;
+	}
+	
+	public List<StudentAbsenceDTO> getStudentAbsences(StudentDTO student) throws NotFoundException {
+		Iterable<StudentAbsence> absenceList = getStudent(student.getId()).getAbsences();
+		List<StudentAbsenceDTO> absenceDTOList = new ArrayList<>();
+		
+		for (StudentAbsence absence : absenceList) {
+			absenceDTOList.add(new StudentAbsenceDTO(absence));
+		}
+		
+		return absenceDTOList;
+	}
+	
+	public List<ExerciseDTO> getStudentExercises(StudentDTO student) throws NotFoundException {
+		// TODO
+		return null;
 	}
 	
 }

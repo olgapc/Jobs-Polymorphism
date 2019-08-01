@@ -46,18 +46,21 @@ public class RepositoryTests {
 				Sex.F, Conclusion.ELIGIBLE, LocalDate.of(2019,4,2), LocalDate.of(2019,8,2));
 	}
 	
+	// Checks controllers injection
 	@Test
 	public void injectedComponentsAreNotNull(){
 		assertThat(userController).isNotNull();
 		assertThat(studentController).isNotNull();
 	}
 	
+	// Checks if NotFoundException is thrown when student don't exist
 	@Test(expected = NotFoundException.class)
 	public void studentIdNotExists() throws Exception {
 		UUID id = UUID.randomUUID();
 		studentController.getStudentDTO(id);
 	}
 	
+	// Checks findByNameAndSurnamesAndSexAndStartDate(...) method
 	@Test(expected = NotFoundException.class)
 	public void studentNotExists() throws Exception {
 		studentController.getStudent(student.getName(), student.getSurnames(), student.getSex(), student.getStartDate());

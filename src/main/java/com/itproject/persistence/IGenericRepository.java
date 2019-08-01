@@ -1,12 +1,12 @@
 package com.itproject.persistence;
 
+import java.io.Serializable;
+
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.NoRepositoryBean;
 
-import com.itproject.domain.User;
-
 @NoRepositoryBean
-public interface IUserGenericRepository<T extends User, UUID> extends CrudRepository<T, UUID>{
+public interface IGenericRepository<T, ID extends Serializable> extends CrudRepository<T, ID>{
 	
 	/* CrudRepository methods summary:
 	 * <S extends T> S save(S entity);
