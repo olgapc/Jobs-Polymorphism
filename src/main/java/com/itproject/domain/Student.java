@@ -47,7 +47,7 @@ public class Student extends User {
 	private List<HistoricStudentItinerary> historicItineraries;
 	
 	@Transient
-	private List<Exercise> exercises;
+	private  List<Exercise> exercises;
 	
 	protected Student() {}
 	
@@ -137,6 +137,10 @@ public class Student extends User {
 		this.absences = absences;
 	}
 
+	public int getAbsencesNumber() {
+		return absences.size();
+	}
+	
 	public List<CurrentDelivery> getCurrentDeliveries() {
 		return currentDeliveries;
 	}

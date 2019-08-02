@@ -19,6 +19,7 @@ public class StudentDTO {
 	@Expose
 	private String surnames;
 	private UserRole role;
+	@Expose
 	private String mail;
 	private Sex sex;
 	private Conclusion conclusion;
@@ -34,6 +35,8 @@ public class StudentDTO {
 	private String interviewResult;
 	@Expose
 	private User interviewTeacher;
+	@Expose
+	private int absences;
 	
 	public StudentDTO(Student student) throws NotFoundException {
 		
@@ -56,6 +59,7 @@ public class StudentDTO {
 		this.itinerary = student.getItinerary();
 		this.interviewResult = student.getInterviewResult();
 		this.interviewTeacher = student.getInterviewTeacher();
+		this.absences = student.getAbsencesNumber();
 		
 	}
 	

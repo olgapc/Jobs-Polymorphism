@@ -1,15 +1,16 @@
 package com.itproject.application.dto;
 
 import java.time.LocalDate;
+import java.util.UUID;
 
 import com.google.gson.annotations.Expose;
-import com.itproject.domain.Student;
 import com.itproject.domain.StudentAbsence;
 import com.itproject.utilities.NotFoundException;
 
 public class StudentAbsenceDTO {
 	
-	private Student student;
+	@Expose
+	private UUID student;
 	@Expose
 	private String date;
 	
@@ -19,11 +20,11 @@ public class StudentAbsenceDTO {
 			throw new NotFoundException();
 		}
 		
-		this.student = studentAbsence.getStudent();
+		this.student = studentAbsence.getStudent().getId();
 		this.date = studentAbsence.getDate().toString();
 	}
 	
-	public Student getStudent() {
+	public UUID getStudent() {
 		return student;
 	}
 	
