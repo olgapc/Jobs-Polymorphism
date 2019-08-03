@@ -399,3 +399,7 @@ INSERT INTO `exercise` (`id`, `name`, `is_common`, `order`, `itinerary`) VALUES 
 INSERT INTO `exercise` (`id`, `name`, `is_common`, `order`, `itinerary`) VALUES ((UNHEX(REPLACE("a891e100-bf59-4eb5-b84e-32f2247d7e1f", "-",""))), 'Vehicles', 0, 2, (UNHEX(REPLACE("5b077002-e07a-4731-86f7-0f85936df341", "-",""))));
 
 INSERT INTO `exercise` (`id`, `name`, `is_common`, `order`, `itinerary`) VALUES ((UNHEX(REPLACE("17e0d6a4-1abb-4e4c-b7ac-976b1e73d4d8", "-",""))), 'Videos', 0, 3, (UNHEX(REPLACE("5b077002-e07a-4731-86f7-0f85936df341", "-",""))));
+
+INSERT INTO `user` (`id`, `username`, `password`, `name`, `surnames`, `role`) VALUES ((UNHEX(REPLACE("6a4b1a9c-5dac-4db3-ac72-d415be594b5c", "-",""))),25, '1234', 'Laura', 'Ponsa', 'STUDENT');
+
+INSERT INTO `student` (`id`, `mail`, `sex`, `conclusion`, `start_date`, `deadline`, `itinerary`) VALUES ((UNHEX(REPLACE("6a4b1a9c-5dac-4db3-ac72-d415be594b5c", "-",""))), 'mail', 'F', 'ELIGIBLE', '2019-06-01', '2019-11-11',(UNHEX(REPLACE("b15345c1-7697-453e-abdb-41a470bc3566", "-",""))));
