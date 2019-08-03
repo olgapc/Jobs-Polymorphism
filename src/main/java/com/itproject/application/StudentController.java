@@ -20,6 +20,7 @@ import com.itproject.application.dto.StudentDTO;
 import com.itproject.persistence.IStudentRepository;
 import com.itproject.utilities.InvalidParamException;
 import com.itproject.utilities.NotFoundException;
+import static org.hibernate.internal.util.collections.CollectionHelper.arrayList;
 
 @Controller
 public class StudentController
@@ -108,20 +109,11 @@ public class StudentController
     public Map<ItineraryName, Long> getNumberStudentsByItineraryName()
     {
         Map<ItineraryName, Long> numbersByItineraryName = new HashMap<>();
-        Long frontendNumber = 0L;
-        Long javaNumber = 0L;
-        Long dot_netNumber = 0L;
-        Long androidNumber = 0L;
 
-        frontendNumber = repository.countByItineraryName(ItineraryName.FRONTEND);
-        javaNumber = repository.countByItineraryName(ItineraryName.JAVA);
-        dot_netNumber = repository.countByItineraryName(ItineraryName.DOT_NET);
-        androidNumber = repository.countByItineraryName(ItineraryName.ANDROID);
-
-        numbersByItineraryName.put(ItineraryName.FRONTEND, frontendNumber);
-        numbersByItineraryName.put(ItineraryName.JAVA, javaNumber);
-        numbersByItineraryName.put(ItineraryName.DOT_NET, dot_netNumber);
-        numbersByItineraryName.put(ItineraryName.ANDROID, androidNumber);
+        for (ItineraryName itineraryName : ItineraryName.values())
+        {
+            numbersByItineraryName.put(itineraryName, repository.countByItineraryName(itineraryName));
+        }
 
         return numbersByItineraryName;
     }
