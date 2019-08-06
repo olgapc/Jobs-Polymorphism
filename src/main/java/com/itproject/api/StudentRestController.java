@@ -108,7 +108,7 @@ public class StudentRestController
         return toJson(students);
     }
 
-    // Returns number by itinerary
+    // Returns number of students by itinerary
     // Call from the web browser http://localhost:8080/students/itineraryNumber
     @GetMapping(value = "/itineraryNumber", produces = "application/json;charset=UTF-8")
     public String getNumberStudentsByItineraryName()
